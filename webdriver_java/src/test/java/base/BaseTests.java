@@ -1,8 +1,11 @@
 package base;
 
-import org.openqa.selenium.Dimension;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+
+import java.util.List;
 
 public class BaseTests {
 
@@ -13,16 +16,12 @@ public class BaseTests {
         driver = new ChromeDriver();
         driver.get("https://the-internet.herokuapp.com/");
 
-        //1 - Maximize the window
-        //driver.manage().window().maximize();
+        List<WebElement> links = driver.findElements(By.tagName("a"));
+        System.out.println(links.size());
 
-        //2 - Fullscreen mode
-        //driver.manage().window().fullscreen();
+        WebElement inputsLink = driver.findElement(By.linkText("Input"));
+        inputsLink.click();
 
-        //3 - Specific width (iPhoneX)
-        //driver.manage().window().setSize(new Dimension(375, 812));
-
-        System.out.println(driver.getTitle());
         driver.quit();
     }
 
