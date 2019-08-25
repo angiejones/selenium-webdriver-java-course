@@ -69,4 +69,32 @@ public class HomePage {
     private void clickLink(String linkText){
         driver.findElement(By.linkText(linkText)).click();
     }
+
+    /*=====================================
+       METHODS FOR INDIVIDUAL EXERCISES
+     ======================================*/
+
+    public ForgotPasswordPage clickForgotPassword(){
+        clickLink("Forgot Password");
+        return new ForgotPasswordPage(driver);
+    }
+
+    public HorizontalSliderPage clickHorizonalSlider(){
+        clickLink("Horizontal Slider");
+        return new HorizontalSliderPage(driver);
+    }
+
+    public ContextMenuPage clickContextMenu(){
+        clickLink("Context Menu");
+        return new ContextMenuPage(driver);
+    }
+
+    public FramesPage clickFramesPage(){
+        clickLink("Frames");
+        return new FramesPage(driver);
+    }
+
+
+
+
 }
