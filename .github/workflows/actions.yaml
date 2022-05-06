@@ -6,7 +6,6 @@ on:
 jobs:
   build_and_test:
     runs-on: ubuntu-latest
-    env:
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-java@v2
