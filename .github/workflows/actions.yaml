@@ -21,5 +21,8 @@ jobs:
         working-directory: webdriver_java
         run: mvn test
       - name: Collect build data
+        working-directory: webdriver_java
         if: always()
-        run: expr $(date +%s) - ${START_TIME}
+        run: |
+          echo "TOTAL_DURATION=$(expr $(date +%s) - ${START_TIME})"
+          ./resources/test_result_script.sh
