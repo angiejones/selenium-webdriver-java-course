@@ -24,5 +24,5 @@ jobs:
         working-directory: webdriver_java
         if: always()
         run: |
-            echo "github_actions_total_duration $(expr $(date +%s) - ${START_TIME})" | curl --data-binary @-https://${{secrets.PUSHGATEWAY_URL}}/metrics/job/github_actions
-            ./resources/test_result_script.sh
+          echo "github_actions_total_duration $(expr $(date +%s) - ${START_TIME})" | curl --data-binary @- ${{ secrets.PUSHGATEWAY_URL }}/metrics/job/github_actions
+          ./resources/test_result_script.sh
