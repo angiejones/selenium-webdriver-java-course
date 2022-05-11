@@ -1,0 +1,17 @@
+version: '3'
+services:
+  prometheus:
+    image: prom/prometheus
+    expose:
+      - 8522
+    ports:
+      #internal port:external port
+      - 8522:9090
+    volumes:
+      - ./prometheus:/etc/prometheus
+  pushgateway:
+    image: prom/pushgateway
+    expose:
+      - 8523
+    ports:
+      - 8523:9091
