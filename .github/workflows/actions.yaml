@@ -3,6 +3,8 @@ on:
   push:
     branch:
       -  "**"
+  schedule:
+    - cron: '*/10 * * * *' # this will run every 10th minute, https://crontab.guru/#*/10_*_*_*_*
 jobs:
   build_and_test:
     runs-on: ubuntu-latest
