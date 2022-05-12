@@ -9,8 +9,11 @@
 
 TEST_RESULTS_LOCATION="${1:-/home/runner/work/selenium-webdriver-java-course/selenium-webdriver-java-course/webdriver_java/target/surefire-reports}"
 TEST_RESULTS_STRING=$(cat "${TEST_RESULTS_LOCATION}/testng-results.xml" | grep "<testng-results")
-echo "IGNORED_TESTS=$(echo ${TEST_RESULTS_STRING} | awk -F'"' '{ print $2 }')"
-echo "TOTAL_TESTS=$(echo ${TEST_RESULTS_STRING} | awk -F'"' '{ print $4 }')"
-echo "PASSED_TESTS=$(echo ${TEST_RESULTS_STRING} | awk -F'"' '{ print $6 }')"
-echo "FAILED_TESTS=$(echo ${TEST_RESULTS_STRING} | awk -F'"' '{ print $8 }')"
-echo "SKIPPED_TESTS=$(echo ${TEST_RESULTS_STRING} | awk -F'"' '{ print $10 }')"
+
+cat <<EOF | curl --data-binary @- ${PUSHGATEWAY_URL}/metrics/job/github_actions
+github_actions_ignored_tests $(echo ${TEST_RESULTS_STRING} | awk -F'"' '{ print $2 }')
+github_actions_total_tests $(echo ${TEST_RESULTS_STRING} | awk -F'"' '{ print $4 }')
+github_actions_passed_tests $(echo ${TEST_RESULTS_STRING} | awk -F'"' '{ print $6 }')
+github_actions_failed_tests $(echo ${TEST_RESULTS_STRING} | awk -F'"' '{ print $8 }')
+github_actions_skipped_tests $(echo ${TEST_RESULTS_STRING} | awk -F'"' '{ print $10 }')
+EOF
