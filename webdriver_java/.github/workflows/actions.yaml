@@ -1,0 +1,16 @@
+#Event name
+name: on_push
+#When the event should run
+on:
+  push:
+    branch:
+      - "**" # This will run on all branches
+#What jobs to execute
+jobs:
+
+  build_and_test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+#What steps within each job

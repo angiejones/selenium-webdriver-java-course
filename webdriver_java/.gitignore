@@ -1,0 +1,65 @@
+# Compiled output
+/dist
+/tmp
+/out-tsc
+# Only exists if Bazel was run
+/bazel-out
+
+# Dependencies
+/node_modules
+/e2e/node_modules
+
+# Cordova
+/www
+/plugins
+/platforms
+
+# Electron
+/dist.electron
+/electron.main.js
+
+# IDEs and editors
+.idea
+target
+!.idea/runConfigurations/
+!.idea/codeStyleSettings.xml
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+xcuserdata/
+*.sublime-workspace
+
+# IDE - VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
+# Maven
+/target
+/log
+
+# Misc
+/.sass-cache
+/connect.lock
+/coverage
+/libpeerconnection.log
+npm-debug.log
+yarn-error.log
+testem.log
+/typings
+/reports
+/src/translations/template.*
+/src/environments/.env.*
+/src/test/resources/db/database.json
+
+# System Files
+.DS_Store
+Thumbs.db
+
+
+#Project specific
+package-lock.json
